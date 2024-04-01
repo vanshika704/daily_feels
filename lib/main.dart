@@ -1,4 +1,7 @@
+import 'package:daily_feels/signup.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    return MaterialApp(debugShowCheckedModeBanner: false,
+    return GetMaterialApp(debugShowCheckedModeBanner: false,
       home: const MyHomePage(),
     );
   }
@@ -49,12 +52,18 @@ class _MyHomePageState extends State<MyHomePage> {
             right: 20,
             child: ElevatedButton(
               onPressed: () {
-              
+                Get.to(Signup());
               },
               style: ElevatedButton.styleFrom(
-    backgroundColor: Color.fromARGB(255, 42, 204, 137),
-  ),
-              child: Text('Start',style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                backgroundColor: Color.fromARGB(255, 42, 204, 137),
+              ),
+              child: Text(
+                'Start',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           ),
         ],
@@ -62,3 +71,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
