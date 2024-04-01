@@ -1,9 +1,20 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:daily_feels/firebase_options.dart';
 import 'package:daily_feels/signup.dart';
+
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  FirebaseFirestore.instance.settings = Settings(
+    persistenceEnabled: true,
+  );
   runApp(const MyApp());
 }
 
@@ -12,9 +23,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    return GetMaterialApp(debugShowCheckedModeBanner: false,
-      home: const MyHomePage(),
+    return const GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(),
     );
   }
 }
@@ -36,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Expanded(
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('assets/Untitled design (3).png'),
                       fit: BoxFit.cover,
@@ -52,12 +63,12 @@ class _MyHomePageState extends State<MyHomePage> {
             right: 20,
             child: ElevatedButton(
               onPressed: () {
-                Get.to(Signup());
+                Get.to(const Signup());
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 42, 204, 137),
+                backgroundColor: const Color.fromARGB(255, 42, 204, 137),
               ),
-              child: Text(
+              child: const Text(
                 'Start',
                 style: TextStyle(
                   color: Colors.white,
@@ -71,5 +82,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
