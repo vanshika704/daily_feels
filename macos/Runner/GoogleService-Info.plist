@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>820990191023-gnvksop8bh1o0jfst1oj9src297rpodn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.820990191023-gnvksop8bh1o0jfst1oj9src297rpodn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA0erlAhIC0SYvlYaMkuOitwgF2mJVAqcY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>820990191023</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.dailyFeels.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>daily-feels-86b10</string>
+	<key>STORAGE_BUCKET</key>
+	<string>daily-feels-86b10.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:820990191023:ios:8060e178c2b7a452fc7b5a</string>
+	<key>DATABASE_URL</key>
+	<string>https://daily-feels-86b10-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

@@ -28,7 +28,7 @@ class _SignupState extends State<Signup> {
             ],
           ),
           Positioned(
-            bottom: 20,
+            bottom: 150,
             left: 20,
             right: 20,
             child: ElevatedButton(
@@ -38,7 +38,7 @@ class _SignupState extends State<Signup> {
               style: ElevatedButton.styleFrom(
     backgroundColor: Color.fromARGB(255, 42, 204, 137),
   ),
-              child: Text('Start',style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+              child: Text('login',style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
             ),
           ),
         ],
