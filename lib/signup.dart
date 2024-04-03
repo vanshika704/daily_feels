@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'hobby.dart';
 
 class Signup extends StatefulWidget {
   const Signup({Key? key}) : super(key: key);
@@ -25,7 +26,15 @@ class _SignupState extends State<Signup> {
           accessToken: googleSignInAuthentication.accessToken,
           idToken: googleSignInAuthentication.idToken,
         );
-        return await _auth.signInWithCredential(credential);
+        final UserCredential userCredential = await _auth.signInWithCredential(credential);
+        
+        
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => WhatsYourHobby()),
+        );
+        
+        return userCredential;
       }
     } catch (error) {
       print('Error signing in with Google: $error');
@@ -33,16 +42,22 @@ class _SignupState extends State<Signup> {
     return null;
   }
 
-  Future<void> signInWithEmailAndPassword() async {
+  Future<void> signInWithEmailAndPassword(BuildContext context) async {
     try {
       final String email = _emailController.text.trim();
       final String password = _passwordController.text.trim();
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+      final UserCredential userCredential = await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
       
       print('User logged in: ${userCredential.user!.uid}');
+      
+    
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => WhatsYourHobby()),
+      );
     } catch (error) {
       print('Error signing in with email and password: $error');
     }
@@ -73,7 +88,7 @@ class _SignupState extends State<Signup> {
             right: 20,
             child: Column(
               children: [
-                // Email Text Form Field
+                
                 TextFormField(
                   controller: _emailController,
                   decoration: const InputDecoration(
@@ -82,7 +97,7 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                // Password Text Form Field
+                
                 TextFormField(
                   controller: _passwordController,
                   obscureText: true,
@@ -92,9 +107,9 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                // Login Button
+             
                 ElevatedButton(
-                  onPressed: signInWithEmailAndPassword,
+                  onPressed: () => signInWithEmailAndPassword(context),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 42, 204, 137),
                   ),
@@ -107,7 +122,7 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                // Google Sign-in Button
+              
                 OutlinedButton.icon(
                   onPressed: signInWithGoogle,
                   icon: const Icon(Icons.login, color: Color.fromARGB(255, 19, 180, 119)),
