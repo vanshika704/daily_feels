@@ -17,20 +17,22 @@ class GridPage extends StatelessWidget {
             end: Alignment.bottomCenter,
           ),
         ),
-        child: GridView.count(
-          crossAxisCount: 3,
-          children: List.generate(
-            7,
-            (index) => GridTile(
-              child: Container(
-                color: Colors.white,
-                margin: EdgeInsets.all(8.0),
-                child: Center(
-                  child: Text(
-                    'Grid ${index + 1}',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
+        child: Center(
+          child: GridView.count(
+            crossAxisCount: 2,
+            children: List.generate(
+              8,
+              (index) => GridTile(
+                child: Container(
+                  color: Colors.white,
+                  margin: EdgeInsets.all(8.0),
+                  child: Center(
+                    child: Text(
+                      'hey varnit',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
