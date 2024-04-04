@@ -22,23 +22,42 @@ class GridPage extends StatelessWidget {
             crossAxisCount: 2,
             children: List.generate(
               8,
-              (index) => GridTile(
-                child: Container(
-                  color: Colors.white,
-                  margin: EdgeInsets.all(8.0),
-                  child: Center(
-                    child: Text(
-                      'hey varnit',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
+              (index) => GridItem(
+                index: index,
+                onTap: () {
+                  // Handle click action here
+                  print('Grid item $index clicked');
+                },
               ),
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class GridItem extends StatelessWidget {
+  final int index;
+  final VoidCallback onTap;
+
+  const GridItem({
+    Key? key,
+    required this.index,
+    required this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        color: Colors.white,
+        margin: EdgeInsets.all(8.0),
+        child: Center(
+          child: Stack(
+            children: [ Image.asset("assets/cycling.gif")
+          ]),
         ),
       ),
     );
