@@ -5,7 +5,28 @@ class GridPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    
+    List<String> imagePaths = [
+     "assets/amy-cooper-sing01.gif",
+     "assets/baking.gif",
+     "assets/cycling.gif",
+     "assets/photography.gif",
+     "assets/travelling.gif",
+     "assets/yoga.gif"
+     
+    ];
+
+    return Scaffold(  appBar: AppBar(
+        title: Text(
+          "Explore....",
+          style: TextStyle(
+            color: Colors.white, 
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Color.fromARGB(255, 6, 62, 100),
+        iconTheme: IconThemeData(color: Colors.white), 
+      ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -21,11 +42,11 @@ class GridPage extends StatelessWidget {
           child: GridView.count(
             crossAxisCount: 2,
             children: List.generate(
-              8,
+              imagePaths.length,
               (index) => GridItem(
                 index: index,
+                imagePath: imagePaths[index], 
                 onTap: () {
-                  // Handle click action here
                   print('Grid item $index clicked');
                 },
               ),
@@ -39,11 +60,13 @@ class GridPage extends StatelessWidget {
 
 class GridItem extends StatelessWidget {
   final int index;
+  final String imagePath; 
   final VoidCallback onTap;
 
   const GridItem({
     Key? key,
     required this.index,
+    required this.imagePath, 
     required this.onTap,
   }) : super(key: key);
 
@@ -56,10 +79,14 @@ class GridItem extends StatelessWidget {
         margin: EdgeInsets.all(8.0),
         child: Center(
           child: Stack(
-            children: [ Image.asset("assets/cycling.gif")
-          ]),
+            children: [
+              Image.asset(imagePath), 
+            ],
+          ),
         ),
       ),
     );
   }
 }
+
+
